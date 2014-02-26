@@ -1,7 +1,7 @@
 CC=gcc
 CPP=cpp
 
-SIC_TARGETS=
+SIC_TARGETS=ack fact fib_rec fib_iter
 
 .PHONY: all clean cleanall
 all: $(SIC_TARGETS)
