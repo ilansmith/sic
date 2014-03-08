@@ -10,14 +10,13 @@
 #define PTR_N 140
 #define TEST_N_IS_NOT_NEG 141
 #define TEST_LESS_THAN_TWO 150
-#define DO_FIB_1ST_K 174 
+#define DO_FIB_1ST_K 174
 #define TEST_WHICH_K 258
 #define DO_FIB_2ND_K 393
 #define PTR_ARGS -466
 #define ARG_N (-(PTR_ARGS) + 0)
 
-ADDR_SPC_T M[MAX_PHYSICAL_MEMORY] =
-{
+ADDR_SPC_T M[MAX_PHYSICAL_MEMORY] = {
 /* PTR */
 /*   0 */    SIC_COMMON, /* common to all sic functions */
 
@@ -41,7 +40,7 @@ ADDR_SPC_T M[MAX_PHYSICAL_MEMORY] =
 /*  18 */    PTR_TMP1, PTR_SUB_ONE, TEST_LESS_THAN_TWO + 21,
 /*  21 */    PTR_TMP1, PTR_N, TEST_WHICH_K,
 /*  24 */
- 
+
 /* 174 */    /* DO_FIB_1ST_K */
 /*   0 */    SIC_MEMORY_TEST,
 /*  15 */    PTR_SP, PTR_SUB_ONE, DO_FIB_1ST_K + 18, /* sp++ */
@@ -136,10 +135,10 @@ ADDR_SPC_T M[MAX_PHYSICAL_MEMORY] =
 
 int sic_init(int argc, ADDR_SPC_T args[MAX_ARGS])
 {
-    if (argc!=1)
-	return -1;
+	if (argc!=1)
+		return -1;
 
-    M[ARG_N] = args[0];
-    return 0;
+	M[ARG_N] = args[0];
+	return 0;
 }
 

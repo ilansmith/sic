@@ -15,8 +15,7 @@
 #define PTR_ARGS -300
 #define ARG_N (-(PTR_ARGS) + 0)
 
-ADDR_SPC_T M[MAX_PHYSICAL_MEMORY] =
-{
+ADDR_SPC_T M[MAX_PHYSICAL_MEMORY] = {
 /* PTR */
 /*   0 */    SIC_COMMON, /* common to all sic functions */
 
@@ -93,10 +92,10 @@ ADDR_SPC_T M[MAX_PHYSICAL_MEMORY] =
 
 int sic_init(int argc, ADDR_SPC_T args[MAX_ARGS])
 {
-    if (argc!=1)
-	return -1;
+	if (argc!=1)
+		return -1;
 
-    M[ARG_N] = args[0];
-    return 0;
+	M[ARG_N] = args[0];
+	return 0;
 }
 

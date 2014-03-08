@@ -17,8 +17,7 @@
 #define ARG_1 (-(PTR_ARGS) + 0)
 #define ARG_2 (-(PTR_ARGS) + 1)
 
-ADDR_SPC_T M[MAX_PHYSICAL_MEMORY] =
-{
+ADDR_SPC_T M[MAX_PHYSICAL_MEMORY] = {
 /* PTR */
 /*   0 */    SIC_COMMON, /* common to all sic functions */
 
@@ -51,7 +50,7 @@ ADDR_SPC_T M[MAX_PHYSICAL_MEMORY] =
 /*  60 */    SIC_COMPLETION_TEST,
 
 /*  69 */    PTR_SP, PTR_ADD_ONE, TEST_P_IS_ZERO,
-/*  72 */    
+/*  72 */
 
 /* 214 */    /* TEST_Q_IS_ZERO */
 /*   0 */    PTR_SP, PTR_SUB_ONE, TEST_Q_IS_ZERO + 3,
@@ -70,13 +69,13 @@ ADDR_SPC_T M[MAX_PHYSICAL_MEMORY] =
 /*  39 */    DONT_CARE, PTR_SUB_ONE, DONT_CARE,
 /*  42 */    PTR_TMP1, PTR_TMP1, DONT_CARE,
 /*  45 */    PTR_TMP1, PTR_SUB_ONE, TEST_P_IS_ZERO,
-/*  48 */    
+/*  48 */
 
 /* 262 */    SIC_MEMORY_TEST,
 
-             /* M[M[sp] + 1] =  q - 1
-	      * M[M[sp]] = p
-	      * M[M[sp] - 1] = p - 1 */
+/* M[M[sp] + 1] = q - 1
+ * M[M[sp]] = p
+ * M[M[sp] - 1] = p - 1 */
 /* 277 */    /* P_AND_Q_ARE_POSITIVE */
 /*   0 */    P_AND_Q_ARE_POSITIVE + 30, P_AND_Q_ARE_POSITIVE + 30, DONT_CARE,
 /*   3 */    P_AND_Q_ARE_POSITIVE + 30, PTR_SP, DONT_CARE,
@@ -117,11 +116,11 @@ ADDR_SPC_T M[MAX_PHYSICAL_MEMORY] =
 
 int sic_init(int argc, ADDR_SPC_T args[MAX_ARGS])
 {
-    if (argc!=2)
-	return -1;
+	if (argc!=2)
+		return -1;
 
-    M[ARG_1] = args[0];
-    M[ARG_2] = args[1];
-    return 0;
+	M[ARG_1] = args[0];
+	M[ARG_2] = args[1];
+	return 0;
 }
 
