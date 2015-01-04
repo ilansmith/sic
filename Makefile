@@ -68,3 +68,34 @@ cleanall: clean
 	rm -rf *.mk tags
 	file `ls` | grep executable | awk -F: '{ print $$1 }' | xargs rm -f
 
+define hl
+\033[1m$1\033[0m
+endef
+
+define help_print_tool
+  @printf "$(call hl,%-8s) - %s.\n" $1 $2
+endef
+
+help:
+	@printf "usage:\n"
+	@printf "     $$ $(call hl,make [TARGETS] [OPTIONS])      [build the sic functions]\n"
+	@printf "     or\n"
+	@printf "     $$ $(call hl,make [TARGETS]_pre.c)          [preprocess a sic function c file]\n"
+	@printf "\n"
+	@printf "Where $(call hl,TARGETS) is any combination of:\n"
+	$(call help_print_tool,"fact","factorial function")
+	$(call help_print_tool,"fib_iter","fibonacci function iterative implementation")
+	$(call help_print_tool,"fib_rec","fibonacci function recursive implementation")
+	$(call help_print_tool,"ack","ackermann function")
+	@printf "Specifying no targets is equivilent to specifying all of them.\n"
+	@printf "\n"
+	@printf "And $(call hl,OPTIONS) is any combination of:\n"
+	$(call help_print_tool,"CONFIG_CALCULATE_TIME=y","time execution duration")
+	$(call help_print_tool,"CONFIG_LARGE_ADDRESS=y","use a large address space (useful on 32-bit systems)")
+	@printf "\n"
+	@printf "     or\n"
+	@printf "\n"
+	@printf "     $$ $(call hl,make clean)                    [clean intermediate files]\n"
+	@printf "     $$ $(call hl,make cleanall)                 [clean everything]\n"
+
+
